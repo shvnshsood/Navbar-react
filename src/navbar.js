@@ -1,5 +1,11 @@
 
 import React,{ useState } from 'react'
+import { motion } from "framer-motion"
+import { NavLink } from 'react-router-dom';
+
+
+
+
 
 const Navbar = () => {
     const [show, setShow] = useState(false);
@@ -22,27 +28,30 @@ const Navbar = () => {
               onClick={() => setShow(!show)}>
               <span class="navbar-toggler-icon"></span>
             </button>
-                         <div class={`collapse navbar-collapse ${show ? "show" : ""}`}>
-                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          
+ <div    class={`collapse navbar-collapse ${show ? "show" : ""}`}>
+                            <motion.ul  whileHover={{ scale: 1.2 }} class="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Services</a>
+                                    <NavLink className="nav-link" to="/services">Services</NavLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">About</a>
+                                    <NavLink className="nav-link" to="/about">About</NavLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact</a>
+                                    <NavLink className="nav-link" to="/contact">Contact</NavLink>
                                 </li>
 
 
-                            </ul>
+                            </motion.ul>
                             <form class="d-flex">
                                 
-                                <button class="btn  btn-style" type="submit">Login</button>
-                                <button class="btn  btn-style btn-style-border" type="submit">Signup</button>
+                                <motion.button whileTap="tap"
+  whileHover={{ scale: 1.2 }}
+  class="btn  btn-style" type="submit">Login</motion.button>
+                                <motion.button  whileHover={{ scale: 1.2 }} class="btn  btn-style btn-style-border" type="submit">Signup</motion.button>
                             </form>
                         </div>
                     </div>
